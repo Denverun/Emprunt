@@ -45,7 +45,7 @@ class Carte
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      */
-    private $Nom;
+    private $nom;
 
     /**
      * @ORM\Column(type="float")
@@ -83,12 +83,12 @@ class Carte
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
     public function setNom(string $Nom): self
     {
-        $this->Nom = $Nom;
+        $this->nom = $Nom;
 
         return $this;
     }
