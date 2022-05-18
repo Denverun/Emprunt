@@ -1,0 +1,35 @@
+
+
+
+
+<link rel="stylesheet" href="{{ asset('styles/app.css') }}" />
+
+
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="example-wrapper">
+        <h1>Hello {{ controller_name }}! ✅</h1>
+        <div class="boite">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Password" aria-label="Pass" aria-describedby="basic-addon1">
+            </div>
+            <button  type="button" class="btn btn-primary">
+                Se connecter
+            </button>
+        </div>
+        This friendly message is coming from:
+        <ul>
+            <li>Your controller at <code><a href="{{ 'D:/PhpstormProjects/src/Controller/AccueilController.php'|file_link(0) }}">src/Controller/AccueilController.php</a></code></li>
+            <li>Your template at <code><a href="{{ 'D:/PhpstormProjects/templates/accueil/index.html.twig'|file_link(0) }}">templates/accueil/index.html.twig</a></code></li>
+        </ul>
+    </div>
+{% endblock %}

@@ -5,54 +5,84 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\User;
+use phpDocumentor\Reflection\Types\Integer;
+use phpDocumentor\Reflection\Types\String_;
 
 class UserFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $user0 = new User();
+        $user = new User();
         $roles = array('God');
-        $user0 ->setUsername('Jacqueszhu')
+        $user ->setUsername('Jacqueszhu')
             ->setEmail('jacqueszhu94@gmail.com')
-            ->setPassword('MotDePasse0')
+            ->setPassword('MotDePasse')
             ->setRoles($roles)
             ->setFirstName('Jacques')
             ->setLastName('Zhu')
             ->setUid(0);
-        $manager->persist($user0);
+        $manager->persist($user);
 
-        $user1 = new User();
+        $user = new User();
         $roles = array('Eleve');
-        $user1 ->setUsername('Eleve1')
+        $user ->setUsername('Eleve1')
             ->setEmail('Eleve1@gmail.com')
-            ->setPassword('MotDePasse1')
+            ->setPassword('MotDePasse')
             ->setRoles($roles)
             ->setFirstName('Eleve')
             ->setLastName('1')
             ->setUid(1);
-        $manager->persist($user1);
+        $manager->persist($user);
 
-        $user2 = new User();
+        $user = new User();
         $roles = array('Eleve');
-        $user2 ->setUsername('Eleve2')
+        $user ->setUsername('Eleve2')
             ->setEmail('Eleve2@gmail.com')
-            ->setPassword('MotDePasse2')
+            ->setPassword('MotDePasse')
             ->setRoles($roles)
             ->setFirstName('Eleve')
             ->setLastName('2')
             ->setUid(2);
-        $manager->persist($user2);
+        $manager->persist($user);
 
-        $user3 = new User();
+        $user = new User();
         $roles = array('Eleve');
-        $user3 ->setUsername('Eleve3')
+        $user ->setUsername('Eleve3')
             ->setEmail('Eleve3@gmail.com')
-            ->setPassword('MotDePasse3')
+            ->setPassword('MotDePasse')
             ->setRoles($roles)
             ->setFirstName('Eleve')
             ->setLastName('3')
             ->setUid(3);
-        $manager->persist($user3);
+        $manager->persist($user);
+
+        for ( $i=0; $i++;$i<10){
+            $user = new User();
+            $roles = array('Membre');
+            $username = 'Membre'.$i;
+            $user ->setUsername('Membre' . $i)
+                ->setEmail('Membre'.$i.'@gmail.com')
+                ->setPassword('MotDePasse')
+                ->setRoles($roles)
+                ->setFirstName('Membre')
+                ->setLastName($i)
+                ->setUid(4+$i);
+            $manager->persist($user);
+        }
+        for ( $i=10; $i<100;$i++){
+            $user = new User();
+            $roles = array('Eleve');
+            $username = 'Eleve'.$i;
+            $user ->setUsername($username)
+                ->setEmail('Eleve'.$i.'@gmail.com')
+                ->setPassword('MotDePasse')
+                ->setRoles($roles)
+                ->setFirstName('Eleve')
+                ->setLastName($i)
+                ->setUid(14+$i);
+            $manager->persist($user);
+        }
+
 
 
         $manager->flush();

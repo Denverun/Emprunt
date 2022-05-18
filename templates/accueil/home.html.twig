@@ -1,0 +1,21 @@
+
+{% extends 'base.php.twig' %}
+
+{% block page_css %}
+    <link href="style.css" rel="stylesheet" />
+{% endblock %}
+{%  block content %}
+    <h1> Bienvenue !</h1>
+Vous vous trouvez bien sur le site permettant d'emprunter des affaires à vos compatriotes de l'école <br>
+    Ceci est une version beta redigée par Jacques dans le cadre d'un cours d'initiation.<br>
+    Je décline toute responsabilité pour toute défaillance que ce site peut provoquer.
+    <br>
+    Connectez-vous si vous êtes un habitué :
+    <a href="{{ path("login") }}"   class="btn btn-primary"> Cliquez ici pour se connecter </a>
+
+    <br><br><br>
+    Sinon inscrivez-vous :
+    <a href="{{ path("inscription") }}"   class="btn btn-primary"> Cliquez ici pour se connecter </a>
+{% endblock %}
+
+

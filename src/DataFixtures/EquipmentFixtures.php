@@ -45,7 +45,16 @@ class EquipmentFixtures extends Fixture
             ->setUid(3);
         $manager->persist($equipment3);
 
-
+        for ( $i=1; $i<100;$i++){
+            $equipment0 = new Equipment();
+            $equipment0 ->setName('Objet'.$i)
+                ->setDescription('Objet'.$i .'sale')
+                ->setQuantity(10)
+                ->setAvailableStock(9)
+                ->setAllowedDays(20)
+                ->setUid($i+10);
+            $manager->persist($equipment0);
+        }
 
 
 

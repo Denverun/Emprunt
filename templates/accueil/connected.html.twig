@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="Content-Type" content="UTF-8">
+    <meta name="Content-Language" content="fr">
+    <title>{% block titre_page %}Accueil des prets pour les connectes{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{{ asset('build/images/favicon.png') }}" />
+    <link rel="stylesheet" href="{{ asset('build/vendor.css') }}" />
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}" />
+    <link rel="stylesheet" href="{{ asset('images/profil.png') }}"/>
+    {% block page_css %}
+    {% endblock %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+</head>
+
+
+<body {% block additionnal_body_block %}{% endblock %} class="theme-indigo {% block additionnal_body_class %}{% endblock %}">
+
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            {% if is_granted('ROLE_USER') %}
+                {% block mobile_collapse %}
+                    <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                {% endblock %}
+                <a href="javascript:void(0);" class="bars"></a>
+            {% endif %}
+
+            <a class="navbar-brand" href="/home">
+                GINFO
+            </a>
+
+            <a href="/profil">  <img src = 'images/profil.png'> </a>
+            <img src = '/images/parametres.png', href="/parametres">
+            <img src = '/images/deconnexion.png', href="/login">
+
+
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                {% if is_granted('ROLE_USER') %}
+                    <li>
+                        <a href="">
+                            <i class="material-icons">settings</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('user_logout') }}">
+                            <i class="material-icons">power_settings_new</i>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+<script src="{{ asset('build/vendor.js') }}"></script>
+<script src="{{ asset('build/app.js') }}"></script>
+<script src="{{ asset('build/runtime.js') }}"></script>
+
+
+{% block page_js %}
+{% endblock %}
+</body>
+
+</html>
