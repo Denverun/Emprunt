@@ -1,15 +1,41 @@
-<head>
-    <link href="style.css" rel="stylesheet" />
-</head>
+{% extends 'base.php.twig' %}
 
+
+{% block page_css %}
+    <link rel="stylesheet" href="{{ asset('build/formulaire.css') }}" />
+{% endblock %}
+
+{%  block content %}
 
 <div class="boite">
+    </br>
+    <img src="{{ asset('build/images/ginfo.png') }}"  style="width:75px;">
+
+    <i class="material-icons">person</i>
     <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"></span>
         <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
     </div>
+
+    <i  class="material-icons" >lock</i>
     <div class="input-group mb-3">
         <input type="password" class="form-control" placeholder="Password" aria-label="Pass" aria-describedby="basic-addon1">
     </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+            Remember me
+        </label>
+    </div>
+
     <button  onclick= "Connect()"type="button" class="btn btn-primary">
-        Se connecter
-    </button> </div>
+        Log In
+    </button>
+    <br>
+    <button  onclick= "Connect()"type="button" class="btn btn-primary">
+        Connexion Via MyCA
+    </button>
+</div>
+
+{% endblock %}

@@ -9,14 +9,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccueilController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
-     */
-    public function home(){
-        dump('Hello');
-        return $this->render('accueil/home.html.twig');
-    }
-
-    /**
      * @Route("/accueil", name="accueil")
      */
     public function index(): Response
@@ -26,6 +18,20 @@ class AccueilController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/", name="login")
+     */
+    public function login(){
+        return $this->render('accueil/login.html.twig');
+    }
+
+    /**
+     * @Route("/home", name="home")
+     */
+    public function home(){
+        dump('Hello');
+        return $this->render('accueil/home.html.twig');
+    }
 
     /**
      * @Route("/connected", name="connected")
@@ -49,21 +55,4 @@ class AccueilController extends AbstractController
     public function parametres(){
         return $this->render('accueil/parametres.twig');
     }
-    /**
-     * @Route("/login", name="login")
-     */
-    public function login(){
-        return $this->render('accueil/login.html.twig');
-    }
-
-    /**
-     * @Route("/inscription", name="inscription")
-     */
-    public function inscription(){
-        return $this->render('accueil/inscription.html');
-    }
-
-
-
-
 }

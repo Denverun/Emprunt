@@ -74,14 +74,14 @@ class BorrowingFixtures extends Fixture implements DependentFixtureInterface
             ->setRemarks('Jeu tres deteriore');
         $manager->persist($borrowing);
 
-        for ( $i=16; $i<100;$i++){
+        for ( $i=5; $i<140;$i++){
             $borrowing = new Borrowing();
             $borrowing ->setLendBy($users[0])
                 ->setBorrowedBy($users[$i])
                 ->setEquipment($equipments[$i])
                 ->setStartedOn($date1)
                 ->setEndedOn($date11)
-                ->setAllowedDays(1000)
+                ->setAllowedDays(1000+$i)
                 ->setRemarks('Pret Temporaire');
             $manager->persist($borrowing);
         }

@@ -20,7 +20,7 @@ class UserFixtures extends Fixture
             ->setRoles($roles)
             ->setFirstName('Jacques')
             ->setLastName('Zhu')
-            ->setUid(0);
+            ->setUid(1);
         $manager->persist($user);
 
         $user = new User();
@@ -31,7 +31,7 @@ class UserFixtures extends Fixture
             ->setRoles($roles)
             ->setFirstName('Eleve')
             ->setLastName('1')
-            ->setUid(1);
+            ->setUid(2);
         $manager->persist($user);
 
         $user = new User();
@@ -42,7 +42,7 @@ class UserFixtures extends Fixture
             ->setRoles($roles)
             ->setFirstName('Eleve')
             ->setLastName('2')
-            ->setUid(2);
+            ->setUid(3);
         $manager->persist($user);
 
         $user = new User();
@@ -53,10 +53,10 @@ class UserFixtures extends Fixture
             ->setRoles($roles)
             ->setFirstName('Eleve')
             ->setLastName('3')
-            ->setUid(3);
+            ->setUid(4);
         $manager->persist($user);
 
-        for ( $i=0; $i++;$i<10){
+        for ( $i=5; $i<150;$i++){
             $user = new User();
             $roles = array('Membre');
             $username = 'Membre'.$i;
@@ -66,20 +66,7 @@ class UserFixtures extends Fixture
                 ->setRoles($roles)
                 ->setFirstName('Membre')
                 ->setLastName($i)
-                ->setUid(4+$i);
-            $manager->persist($user);
-        }
-        for ( $i=10; $i<100;$i++){
-            $user = new User();
-            $roles = array('Eleve');
-            $username = 'Eleve'.$i;
-            $user ->setUsername($username)
-                ->setEmail('Eleve'.$i.'@gmail.com')
-                ->setPassword('MotDePasse')
-                ->setRoles($roles)
-                ->setFirstName('Eleve')
-                ->setLastName($i)
-                ->setUid(14+$i);
+                ->setUid($i);
             $manager->persist($user);
         }
 
